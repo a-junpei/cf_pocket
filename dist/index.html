@@ -1,4 +1,5 @@
 <script>
+fetchData = async() => {
     let response = await fetch('/api/now.ts');
 
     if (response.ok) { // HTTP ステータスが 200-299 の場合
@@ -6,6 +7,11 @@
     } else {
         alert("HTTP-Error: " + response.status);
     }
+}
+
+window.onload = function(){
+    fetchData();
+}
 </script>
 <p>Hello, World!!</p>
 <p id='now'></p>
