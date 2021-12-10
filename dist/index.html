@@ -1,1 +1,11 @@
+<script>
+    let response = await fetch('/api/now.ts');
+
+    if (response.ok) { // HTTP ステータスが 200-299 の場合
+        document.getElementById('now').innerText = await response.body();
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+</script>
 <p>Hello, World!!</p>
+<p id='now'></p>
