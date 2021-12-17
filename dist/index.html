@@ -1,9 +1,10 @@
 <script>
 fetchData = async() => {
-    let response = await fetch('/api/now');
+    let response = await fetch('/api/list');
 
     if (response.ok) { // HTTP ステータスが 200-299 の場合
-        document.getElementById('now').innerText = await response.text();
+        const json = await response.json();
+        document.getElementById('now').innerText = JSON.stringify(json);
     } else {
         alert("HTTP-Error: " + response.status);
     }
